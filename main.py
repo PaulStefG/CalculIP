@@ -26,12 +26,16 @@ def calculIPuri(p):
     Network = [int(result_bin[0:8], 2), int(result_bin[8:16], 2), int(result_bin[16:24], 2), int(result_bin[24:32], 2)]
     SubnetMask = [int(pf[0:8], 2), int(pf[8:16], 2), int(pf[16:24], 2), int(pf[24:32], 2)]
 
+
+
+
     pc = '0' * prefix
     pc += '1' * (32 - prefix)
     BCast = ipB_int | int(pc, 2)
     BCast_bin = bin(BCast)[2:].zfill(32)
     Broadcast = [int(BCast_bin[0:8], 2), int(BCast_bin[8:16], 2), int(BCast_bin[16:24], 2), int(BCast_bin[24:32], 2)]
 
+    
     gr = ""
     if SubnetMask[0] == 255:
         if SubnetMask[1] == 255:
